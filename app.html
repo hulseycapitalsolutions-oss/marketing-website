@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hulsey Capital Solutions | Mobile App</title>
+    <style>
+        :root {
+            --bg-dark: #040711;
+            --card-dark: #0d1533;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --gold-gradient: linear-gradient(135deg, #fffbeb 0%, #fef08a 25%, #eab308 55%, #ca8a04 85%, #854d0e 100%);
+            --gold-border: rgba(234, 179, 8, 0.45);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-dark); color: var(--text-main); padding-bottom: 5rem; }
+        
+        /* Mobile App Header */
+        .app-header { background: rgba(4, 7, 17, 0.95); backdrop-filter: blur(12px); border-bottom: 2px solid; border-image: var(--gold-gradient) 1; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .app-logo { font-size: 1.3rem; font-weight: 900; color: var(--text-main); }
+        .app-logo span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .badge-sm { background: rgba(234, 179, 8, 0.15); border: 1px solid #eab308; color: #fef08a; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
+
+        /* App Container */
+        .app-container { padding: 1.5rem; max-width: 600px; margin: 0 auto; }
+        
+        /* Card Styling */
+        .app-card { background: var(--card-dark); border: 2px solid var(--gold-border); border-radius: 14px; padding: 1.8rem; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .app-card h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .app-card h2 span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .app-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+        /* Form Controls */
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; color: var(--text-muted); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.4rem; }
+        .form-group input, .form-group select { width: 100%; padding: 0.9rem; background: #040711; border: 2px solid rgba(234, 179, 8, 0.3); border-radius: 8px; color: #fff; font-size: 1rem; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: #eab308; }
+        
+        .calc-result { margin-top: 1.5rem; padding: 1.2rem; background: rgba(234, 179, 8, 0.1); border: 2px solid #eab308; border-radius: 8px; text-align: center; }
+        .calc-result span { font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; }
+        .calc-result h3 { font-size: 1.8rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-top: 0.3rem; }
+
+        /* Buttons */
+        .btn-gold { display: block; width: 100%; text-align: center; background: var(--gold-gradient); color: #040711; padding: 1rem; font-weight: 900; text-decoration: none; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(234, 179, 8, 0.4); }
+
+        /* Bottom Mobile Navigation Bar */
+        .mobile-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(4, 7, 17, 0.98); border-top: 2px solid rgba(234, 179, 8, 0.3); display: flex; justify-content: space-around; padding: 0.8rem 0; z-index: 1000; }
+        .mobile-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; text-align: center; }
+        .mobile-nav a:hover, .mobile-nav a.active { color: #eab308; }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="app-logo">Hulsey <span>Capital</span></div>
+        <div class="badge-sm">BBB Certified</div>
+    </header>
+
+    <div class="app-container">
+        
+        <!-- LOAN CALCULATOR MODULE -->
+        <div class="app-card" id="calculator">
+            <h2>Loan <span>Calculator</span></h2>
+            <p>Estimate commercial equipment financing terms instantly.</p>
+            <div class="form-group">
+                <label>Equipment Value ($)</label>
+                <input type="number" id="loanAmount" value="250000" step="5000" oninput="calculateLoan()">
+            </div>
+            <div class="form-group">
+                <label>Interest Rate (%)</label>
+                <input type="number" id="interestRate" value="5.49" step="0.01" oninput="calculateLoan()">
+            </div>
+            <div class="form-group">
+                <label>Loan Term</label>
+                <select id="loanTerm" onchange="calculateLoan()">
+                    <option value="36">36 Months (3 Years)</option>
+                    <option value="48">48 Months (4 Years)</option>
+                    <option value="60" selected>60 Months (5 Years)</option>
+                    <option value="72">72 Months (6 Years)</option>
+                </select>
+            </div>
+            <div class="calc-result">
+                <span>Estimated Monthly Payment</span>
+                <h3 id="monthlyPayment">$4,778.15</h3>
+            </div>
+        </div>
+
+        <!-- INSTANT LENDER CONNECTION FORM -->
+        <div class="app-card" id="apply">
+            <h2>Instant Lender <span>Connection</span></h2>
+            <p>Submit your parameters directly to our commercial lending network.</p>
+            <form action="mailto:Hulseycapitalsolutions@gmail.com" method="POST" enctype="text/plain">
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" name="Company" placeholder="Enter company name" required>
+                </div>
+                <div class="form-group">
+                    <label>Direct Phone</label>
+                    <input type="tel" name="Phone" placeholder="720-933-6319" required>
+                </div>
+                <div class="form-group">
+                    <label>Equipment Needed</label>
+                    <input type="text" name="Equipment" placeholder="e.g., Excavator, Semi-Truck" required>
+                </div>
+                <button type="submit" class="btn-gold">Submit Secure Inquiry</button>
+            </form>
+        </div>
+
+        <!-- W-9 & DOCUMENTS MODULE -->
+        <div class="app-card" id="documents">
+            <h2>Official <span>Documents</span></h2>
+            <p>Quick access to verified tax compliance and BBB credentials.</p>
+            <div style="display: flex; gap: 1rem; flex-direction: column;">
+                <a href="https://docs.google.com/document/d/108jNgI1jky6ld93bVv0IE8Asy6puhl0dsvslK8Fy1UY/edit?usp=drivesdk" target="_blank" class="btn-gold" style="text-align: center; background: transparent; border: 2px solid #eab308; color: #fef08a;">View Official W-9 Form</a>
+                <div style="text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 0.5رم;">
+                    📞 Direct Support: 720-933-6319
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM APP NAVIGATION -->
+    <nav class="mobile-nav">
+        <a href="#calculator" class="active">Calculator</a>
+        <a href="#apply">Connect</a>
+        <a href="#documents">W-9 & BBB</a>
+    </nav>
+
+    <!-- CALCULATION SCRIPT -->
+    <script>
+        function calculateLoan() {
+            const principal = parseFloat(document.getElementById('loanAmount').value);
+            const annualRate = parseFloat(document.getElementById('interestRate').value) / 100;
+            const months = parseInt(document.getElementById('loanTerm').value);
+            const monthlyRate = annualRate / 12;
+            const payment = (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+            document.getElementById('monthlyPayment').innerText = '$' + payment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+        window.onload = calculateLoan;
+    </script>
+</body>
+</html>
