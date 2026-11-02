@@ -1,315 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hulsey Capital Solutions | Commercial Equipment & Asset Recovery</title>
-    <style>
-        :root {
-            --bg-color: #070b16;
-            --card-bg: #0f172a;
-            --card-hover: #1e293b;
-            --gold-light: #fffbeb;
-            --gold-main: #f59e0b;
-            --gold-shine: linear-gradient(135deg, #fef08a 0%, #f59e0b 35%, #d97706 70%, #b45309 100%);
-            --gold-border: rgba(245, 158, 11, 0.4);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-        header {
-            background: rgba(7, 11, 22, 0.95);
-            border-bottom: 2px solid var(--gold-main);
-            padding: 1.25rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
-        }
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text-main);
-            letter-spacing: -0.5px;
-        }
-        .logo span {
-            background: var(--gold-shine);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-        }
-        .nav-contact {
-            background: var(--gold-shine);
-            color: #070b16;
-            padding: 0.6rem 1.4rem;
-            font-size: 0.95rem;
-            font-weight: 800;
-            text-decoration: none;
-            border-radius: 6px;
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
-            transition: transform 0.2s ease;
-        }
-        .nav-contact:hover {
-            transform: scale(1.05);
-        }
-        .hero {
-            position: relative;
-            text-align: center;
-            padding: 10rem 2rem 8rem 2rem;
-            background: linear-gradient(rgba(7, 11, 22, 0.8), rgba(7, 11, 22, 0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            border-bottom: 3px solid var(--gold-main);
-        }
-        .hero-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .trust-badge {
-            display: inline-block;
-            background: rgba(245, 158, 11, 0.15);
-            border: 2px solid var(--gold-main);
-            color: var(--gold-light);
-            padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
-        }
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-            line-height: 1.1;
-        }
-        .hero h1 span {
-            background: var(--gold-shine);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.6));
-        }
-        .hero .tagline {
-            font-size: 1.4rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .btn-gold {
-            display: inline-block;
-            background: var(--gold-shine);
-            color: #070b16;
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: 800;
-            text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .btn-gold:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 35px rgba(245, 158, 11, 0.8);
-        }
-        .section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 6rem 2rem;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 4rem;
-            color: var(--text-main);
-            letter-spacing: -0.5px;
-        }
-        .section-title span {
-            background: var(--gold-shine);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+/* GRID CARDS */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
             gap: 2.5rem;
         }
-        .card {
-            background: var(--card-bg);
-            border-radius: 14px;
+        .card-dark {
+            background: var(--card-dark);
+            border-radius: 16px;
             overflow: hidden;
             border: 2px solid var(--gold-border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: var(--gold-main);
+        .card-dark:hover {
+            transform: translateY(-8px);
+            border-color: #eab308;
         }
         .card-img {
-            height: 220px;
+            height: 250px;
             background-size: cover;
             background-position: center;
             border-bottom: 2px solid var(--gold-border);
         }
-        .card-content {
-            padding: 2.5rem;
+        .card-body {
+            padding: 3rem;
         }
-        .card h3 {
-            font-size: 1.6rem;
+        .card-body h3 {
+            font-size: 1.9rem;
             margin-bottom: 1rem;
-            color: var(--text-main);
         }
-        .card h3 span {
-            background: var(--gold-shine);
+        .card-dark h3 span {
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .card p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-        .gallery-section {
-            background: linear-gradient(135deg, #0f172a 0%, #070b16 100%);
-            border-top: 2px solid var(--gold-border);
-            border-bottom: 2px solid var(--gold-border);
-            padding: 6rem 2rem;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .gallery-item {
-            height: 300px;
-            border-radius: 12px;
-            background-size: cover;
-            background-position: center;
-            border: 2px solid var(--gold-border);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-        }
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(7, 11, 22, 0.95));
-            padding: 1.5rem;
-            color: var(--gold-light);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        @media(max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-        }
-        .about-text p {
-            color: var(--text-muted);
+        .card-dark p {
+            color: var(--text-muted-dark);
             font-size: 1.15rem;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
-        .about-image-box {
-            height: 450px;
-            border-radius: 14px;
-            background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80') no-repeat center center/cover;
-            border: 3px solid var(--gold-main);
-            box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
-        }
+        /* CONTACT SECTION */
         .contact-section {
-            background: radial-gradient(circle at center, #1e293b 0%, #070b16 80%);
-            border-top: 3px solid var(--gold-main);
+            background: radial-gradient(circle at center, #111b36 0%, #050814 85%);
+            border-top: 4px solid;
+            border-image: var(--gold-gradient) 1;
             text-align: center;
-            padding: 8rem 2rem;
+            padding: 10rem 2rem;
         }
         .contact-section h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.8rem;
+            margin-bottom: 1.2rem;
         }
         .contact-section h2 span {
-            background: var(--gold-shine);
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .contact-section p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
+            color: var(--text-muted-dark);
+            font-size: 1.3rem;
+            margin-bottom: 4rem;
         }
         .contact-boxes {
             display: flex;
             justify-content: center;
             gap: 3rem;
             flex-wrap: wrap;
-            max-width: 1000px;
-            margin: 0 auto 3rem auto;
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
         }
         .contact-box {
-            background: var(--card-bg);
-            border: 2px solid var(--gold-main);
-            padding: 2rem 3rem;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
-            font-size: 1.2rem;
-            font-weight: 700;
+            background: var(--card-dark);
+            border: 2px solid #eab308;
+            padding: 3rem 4rem;
+            border-radius: 16px;
+            box-shadow: 0 0 35px rgba(234, 179, 8, 0.25);
+            font-size: 1.35rem;
+            font-weight: 800;
         }
         .contact-box span {
             display: block;
-            background: var(--gold-shine);
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 0.9rem;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
+            letter-spacing: 2.5px;
+            margin-bottom: 0.75rem;
         }
         footer {
             text-align: center;
-            padding: 3rem;
-            color: var(--text-muted);
-            font-size: 1rem;
+            padding: 4.5rem;
+            color: var(--text-muted-dark);
+            font-size: 1.1rem;
             border-top: 2px solid var(--gold-border);
-            background-color: #04060d;
+            background-color: #02040a;
         }
     </style>
 </head>
@@ -317,77 +102,118 @@
 
     <header>
         <div class="logo">Hulsey <span>Capital</span></div>
-        <a href="#contact" class="nav-contact">Secure Contact</a>
+        <div class="nav-links">
+            <a href="#pitches">Loan Pitches</a>
+            <a href="#divisions">Core Divisions</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="nav-contact">Secure Inquiry</a>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <div class="trust-badge">&#9733; BBB Certified & Accredited Enterprise &#9733;</div>
+            <div class="trust-badge">&#9733; Verified Better Business Bureau (BBB) Certified Enterprise &#9733;</div>
             <h1>Hulsey <span>Capital Solutions</span></h1>
-            <div class="tagline">Commercial Equipment Brokerage & Heavy Asset Recovery</div>
-            <p>Delivering high-capacity power systems, industrial equipment brokerage, mobile asset deployment, and elite capital strategies engineered for heavy enterprise demands.</p>
-            <a href="#services" class="btn-gold">Explore Core Capabilities</a>
+            <div class="tagline">Heavy Equipment Financing ($50k to $10M) & Elite Asset Brokerage</div>
+            <p>Bridging the critical gap between heavy commercial operations and premier capital execution. From multi-million dollar fleet expansion loans and earthmoving machinery to specialized mobile power units and heavy asset recovery, we deliver results plated in absolute excellence.</p>
+            <a href="#pitches" class="btn-gold">Explore Loan Structures & Equipment</a>
         </div>
     </section>
 
-    <section id="services" class="section">
-        <h2 class="section-title">Elite <span>Capabilities</span> & Divisions</h2>
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="card-content">
-                    <h3>Commercial <span>Equipment Brokerage</span></h3>
-                    <p>Specialized high-value sourcing, sales, and field demonstrations for heavy machinery, tri-fuel industrial generators, air compressors, and commercial fleet assets.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="card-content">
-                    <h3>Heavy <span>Asset Recovery</span></h3>
-                    <p>Professional assessment, secure logistical coordination, and asset turnaround services designed to recover, secure, and redeploy critical industrial equipment.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="card-content">
-                    <h3>Mobile Power <span>& Field Units</span></h3>
-                    <p>Deployment-ready industrial power packages, 4-in-1 units, heavy-duty welders, plasma cutters, and high-capacity water pumps configured for rigorous commercial sites.</p>
-                </div>
+    <!-- WHITE BACKGROUND SECTION WITH MASSIVE SALES PITCHES & DROPDOWNS -->
+    <section id="pitches" class="section-light">
+        <div class="section-container">
+            <h2 class="section-title">Commercial Loan Structures & <span>Comprehensive Sales Pitches</span></h2>
+            <p class="section-subtitle">Click any financing category below to open extensive sales pitches, underwriting tiers, loan parameters, and equipment eligibility details.</p>
+            
+            <div class="dropdown-menu-container">
+                <details>
+                    <summary>Heavy Equipment Financing ($50k to $10M) & Earthmoving Machinery</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Sales Pitch:</strong> When tight deadlines and aggressive job sites dictate your bottom line, operating outdated or underpowered machinery is a liability your enterprise cannot afford. Hulsey Capital Solutions connects your contracting business directly with premier institutional commercial lenders to secure rapid capital approvals ranging from $50,000 to $10,000,000. Featuring competitive rates starting at 5.49%+ for qualified credit tiers and soft credit pulls that protect your corporate financial profile, we ensure you acquire the heavy iron you need without draining cash reserves.</p>
+                        <ul>
+                            <li><strong>Financing Range:</strong> $50,000 up to $10,000,000 with customized amortization schedules.</li>
+                            <li><strong>Underwriting Advantage:</strong> Soft credit pull initial screening to safeguard your credit score.</li>
+                            <li><strong>Eligible Earthmoving Iron:</strong> Hydraulic excavators, track-type tractors, bulldozers, wheel loaders, motor graders, crawler cranes, backhoe loaders, paving equipment, and heavy compaction rollers.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Fleet Financing & Working Capital for Trucking & Logistics Companies</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Sales Pitch:</strong> A freight and logistics operation is only as powerful as its transport fleet. We specialize in structuring high-capacity asset loans and working capital packages designed specifically for trucking companies, independent owner-operators, and regional logistics carriers looking to scale fleet capacity, acquire Class 8 semi-trucks, and expand regional shipping contracts.</p>
+                        <ul>
+                            <li><strong>Covered Transport Assets:</strong> Class 8 over-the-road semi-trucks, sleeper cabs, day cabs, dry van trailers, refrigerated reefers, flatbed trailers, and heavy-haul lowboy transport rigs.</li>
+                            <li><strong>Working Capital Integration:</strong> Combine fleet acquisition with operating capital injections to cover rising fuel costs, scheduled maintenance reserves, parts inventory, and commercial insurance premiums.</li>
+                            <li><strong>Streamlined Approval:</strong> Direct underwriting tailored specifically to cash-flowing transport enterprises.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Mobile Power Units, Generators & Industrial Equipment Brokerage</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Sales Pitch:</strong> Remote industrial plants, remote drilling sites, and large-scale commercial construction projects require uncompromising mobile power systems. We broker and finance industrial-grade mobile assets engineered to withstand rigorous commercial environments, ensuring your operational teams maintain continuous, reliable power and support equipment under any conditions.</p>
+                        <ul>
+                            <li><strong>Power Generation:</strong> Tri-fuel generators, heavy industrial diesel generators, and mobile turbine power skids.</li>
+                            <li><strong>Field Support Packages:</strong> 4-in-1 industrial power units combining air compressors, heavy-duty commercial welders, precision plasma cutting systems, and high-capacity dewatering pumps.</li>
+                            <li><strong>Brokerage Excellence:</strong> Comprehensive sourcing, inspection, and field demonstration support matching operators with deployment-ready machinery.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Heavy Asset Recovery & Industrial Turnaround Services</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Sales Pitch:</strong> Defaulted assets, corporate restructuring, and stranded job-site machinery require specialized professional intervention. Our heavy asset recovery division provides expert assessment, secure logistical coordination, and comprehensive turnaround management designed to safely recover, secure, appraise, and redeploy high-value industrial equipment.</p>
+                        <ul>
+                            <li><strong>Operational Rigor:</strong> Certified rigging, heavy transport coordination, secure yard storage, and comprehensive asset evaluation.</li>
+                            <li><strong>Corporate Protection:</strong> Full adherence to regulatory compliance and legal protocols during asset recovery operations.</li>
+                        </ul>
+                    </div>
+                </details>
             </div>
         </div>
     </section>
 
-    <section class="gallery-section">
-        <h2 class="section-title">Industrial <span>Assets</span> & Field Showcase</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80');">
-                <div class="gallery-caption">Heavy Power Systems & Generators</div>
-            </div>
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80');">
-                <div class="gallery-caption">Commercial Fleet & Asset Recovery</div>
-            </div>
-            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80');">
-                <div class="gallery-caption">Industrial Machinery & Field Units</div>
-            </div>
-        </div>
-    </section>
+    <!-- DARK BACKGROUND SECTION FOR CORE DIVISIONS -->
+    <section id="divisions" class="section-dark">
+        <div class="section-container">
+            <h2 class="section-title">Core <span>Industrial Divisions</span></h2>
+            <p class="section-subtitle">Comprehensive operational divisions engineered specifically for heavy contractors, fleet operators, and industrial enterprises.</p>
+            
+            <div class="grid-3">
+                <div class="card-dark">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-body">
+                        <h3>Commercial <span>Equipment Brokerage</span></h3>
+                        <p>Specialized high-value sourcing, sales support, and field demonstrations for heavy earthmoving machinery, industrial power units, tri-fuel generators, and commercial fleet assets.</p>
+                    </div>
+                </div>
 
-    <section class="section">
-        <h2 class="section-title">Company <span>Background</span> & Standards</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>Hulsey Capital Solutions was established to address a vital need in the industrial sector: contractors, fleet operators, and commercial enterprises require responsive partners who understand heavy machinery from the ground up.</p>
-                <p>Backed by extensive field experience spanning heavy power systems, hands-on mechanical maintenance, rigging, and asset management, we bridge the gap between heavy operations and capital execution.</p>
-                <p>As a Better Business Bureau (BBB) certified and accredited enterprise, our commitment to transparent transactions, elite ethical standards, and total operational reliability remains absolute.</p>
-                <p>Whether you are procuring commercial equipment packages, scaling fleet capabilities, or managing complex asset recovery, our focus is fixed on absolute excellence.</p>
+                <div class="card-dark">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-body">
+                        <h3>Heavy <span>Asset Recovery</span></h3>
+                        <p>Professional assessment, secure logistical coordination, and structured turnaround services designed to safely recover, secure, and redeploy critical industrial equipment.</p>
+                    </div>
+                </div>
+
+                <div class="card-dark">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-body">
+                        <h3>Mobile Power <span>& Field Units</span></h3>
+                        <p>Deployment-ready industrial power packages, 4-in-1 units, heavy-duty welders, plasma cutters, and high-capacity water pumps configured for rigorous commercial job sites.</p>
+                    </div>
+                </div>
             </div>
-            <div class="about-image-box"></div>
         </div>
     </section>
 
     <section id="contact" class="contact-section">
-        <h2>Connect With <span>Our Leadership</span></h2>
-        <p>Ready to discuss your commercial equipment requirements, fleet assets, or capital project? Reach out directly.</p>
+        <h2>Connect With <span>Hulsey Capital Solutions</span></h2>
+        <p>Ready to discuss your heavy equipment loan, fleet financing, or industrial asset requirement? Reach out to our leadership directly.</p>
         
         <div class="contact-boxes">
             <div class="contact-box">
@@ -404,12 +230,331 @@
             </div>
         </div>
 
-        <a href="mailto:Hulseycapitalsolutions@gmail.com" class="btn-gold">Initiate Email Inquiry</a>
+        <a href="mailto:Hulseycapitalsolutions@gmail.com" class="btn-gold">Initiate Secure Loan Inquiry</a>
     </section>
 
     <footer>
-        &copy; 2026 Hulsey Capital Solutions. All Rights Reserved. BBB Certified & Accredited Enterprise.
+        &copy; 2026 Hulsey Capital Solutions. All Rights Reserved. Verified Better Business Bureau (BBB) Certified & Accredited Business.
     </footer>
 
 </body>
 </html>
+<!-- PART 2 OF 5: MASSIVE EXPANDED COMMERCIAL UNDERWRITING & LOAN STRUCTURES -->
+    <section class="section-dark" style="border-top: 3px solid; border-image: var(--gold-gradient) 1;">
+        <div class="section-container">
+            <h2 class="section-title">Institutional Capital & <span>Underwriting Parameters</span></h2>
+            <p class="section-subtitle">We don't do generic financing. Every loan structure we architect is custom-tailored to the rigorous cash-flow cycles of heavy construction, civil engineering, freight logistics, and industrial manufacturing.</p>
+
+            <div class="dropdown-menu-container">
+                <details>
+                    <summary>Tier 1 Prime Commercial Equipment Loans ($250k to $10M)</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Operational Strategy:</strong> Designed for established contractors, tier-one civil engineering firms, and high-volume freight enterprises. When you are bidding on multi-million dollar public infrastructure or regional highway contracts, your capital partner must move at the speed of industry. We leverage direct institutional relationships to secure prime rates starting at 5.49%+ with zero prepayment penalties.</p>
+                        <ul>
+                            <li><strong>Borrowing Limits:</strong> $250,000 up to $10,000,000 per institutional tranche.</li>
+                            <li><strong>Amortization Schedules:</strong> Extended terms ranging from 36 to 84 months to match equipment depreciation curves.</li>
+                            <li><strong>Tax Advantages:</strong> Structured to maximize Section 179 deductions and bonus depreciation for heavy commercial machinery.</li>
+                            <li><strong>Soft Credit Verification:</strong> Initial structuring and pre-qualification conducted entirely via soft credit pulls to protect your corporate borrowing profile.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Fleet Expansion & Heavy Transport Capital ($100k to $5M)</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Operational Strategy:</strong> Logistics companies live and die by equipment uptime. A grounded semi-truck or an idle dry van destroys profit margins. Our dedicated transport financing division provides immediate capital injections for regional carriers and owner-operators looking to scale up their transport capacity, acquire new Class 8 sleepers, or overhaul aging fleets.</p>
+                        <ul>
+                            <li><strong>Covered Commercial Iron:</strong> Over-the-road sleeper cabs, regional day cabs, refrigerated reefer trailers, specialized flatbeds, step-decks, and heavy-haul multi-axle lowboys.</li>
+                            <li><strong>Working Capital Bundling:</strong> Seamlessly bundle operational expenses—such as initial fuel reserves, commercial insurance down payments, and mandatory maintenance contracts—directly into your primary fleet loan.</li>
+                            <li><strong>Deferred Payment Options:</strong> Up to 90-day deferred payment structures available to allow newly acquired transport units to generate revenue before the first principal installment hits.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Working Capital & Cash-Flow Bridge Loans ($50k to $1M)</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Operational Strategy:</strong> In the heavy contracting sector, accounts receivable lag behind payroll and material costs. Large projects require upfront capital for bonding, mobilization, heavy fuel overhead, and operator payroll. Our working capital bridge loans convert your active receivables and upcoming project milestones into immediate, deployment-ready liquidity.</p>
+                        <ul>
+                            <li><strong>Rapid Disbursement:</strong> Funding delivered to your corporate account within 24 to 72 hours of final document execution.</li>
+                            <li><strong>No Collateral Restrictions:</strong> Unsecured and semi-secured working capital lines based on monthly gross revenue rather than fixed asset valuation.</li>
+                            <li><strong>Project Mobilization Support:</strong> Specifically engineered to fund heavy site prep, equipment transport, and initial material staging.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Heavy Machinery & Earthmoving Asset Breakdown</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Operational Strategy:</strong> We understand the exact machinery specs required to move dirt, rock, and steel. Our institutional lenders recognize the residual value of high-end industrial iron, allowing us to finance specialized equipment that standard banks reject.</p>
+                        <ul>
+                            <li><strong>Excavation & Earthmoving:</strong> Track excavators, wheel excavators, long-reach excavators, and mini-excavators from Caterpillar, Komatsu, Volvo, and John Deere.</li>
+                            <li><strong>Grading & Paving:</strong> Motor graders, asphalt pavers, cold planers, soil compactors, pneumatic rollers, and heavy vibratory rollers.</li>
+                            <li><strong>Lifting & Material Handling:</strong> Rough terrain cranes, crawler cranes, telescopic handlers, industrial forklift fleets, and heavy-duty mast lifts.</li>
+                            <li><strong>Aggregate & Mining:</strong> Mobile jaw crushers, cone crushers, screening plants, and heavy off-highway articulated dump trucks.</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- PART 3 OF 5: CORE INDUSTRIAL DIVISIONS & DETAILED FIELD OPERATIONS -->
+    <section id="divisions" class="section-dark">
+        <div class="section-container">
+            <h2 class="section-title">Core <span>Industrial Divisions</span> & Field Operations</h2>
+            <p class="section-subtitle">Hulsey Capital Solutions operates across specialized commercial divisions engineered to provide total operational support, equipment procurement, and asset management for heavy contractors and transport fleets.</p>
+            
+            <div class="grid-3">
+                <div class="card-dark">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-body">
+                        <h3>Commercial <span>Equipment Brokerage</span></h3>
+                        <p>Specialized high-value sourcing, corporate sales support, and live field demonstrations for heavy earthmoving machinery, industrial power units, tri-fuel generators, and heavy commercial fleet assets. We connect buyers and sellers with verified inspection standards.</p>
+                        <ul style="list-style: none; margin-top: 1.5rem;">
+                            <li style="padding: 0.4rem 0; color: var(--text-muted-dark); display: flex; align-items: center;"><span style="color: #eab308; margin-right: 10px;">◆</span> Rigorous multi-point mechanical inspection reports</li>
+                            <li style="padding: 0.4rem 0; color: var(--text-muted-dark); display: flex; align-items: center;"><span style="color: #eab308; margin-right: 10px;">◆</span> Direct manufacturer and auction brokerage coordination</li>
+                            <li style="padding: 0.4rem 0; color: var(--text-muted-dark); display: flex; align-items: center;"><span style="color: #eab308; margin-right: 10px;">◆</span> Turnkey title transfer and lien release processing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-dark">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-body">
+                        <h3>Heavy <span>Asset Recovery</span></h3>
+                        <p>Professional assessment, secure logistical coordination, and structured turnaround services designed to safely recover, secure, appraise, and redeploy critical industrial equipment for corporate lenders and distressed operators.</p>
+                        <ul style="list-style: none; margin-top: 1.5rem;">
+                            <li style="padding: 0.4rem 0; color: var(--text-muted-dark); display: flex; align-items: center;"><span style="color: #eab308; margin-right: 10px;">◆</span> Certified heavy-haul rigging and transport extraction</li>
+                            <li style="padding: 0.4rem 0; color: var(--text-muted-dark); display: flex; align-items: center;"><span style="color: #eab308; margin-right: 10px;">◆</span> Secure regional storage yards and 24/7 site monitoring</li>
+                            <li style="padding: 0.4rem 0; color: var(--text-muted-dark); display: flex; align-items: center;"><span style="color: #eab308; margin-right: 10px;">◆</span> Certified machinery appraisal and liquidation management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-dark">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="card-body">
+                        <h3>Mobile Power <span>& Field Units</span></h3>
+                        <p>Deployment-ready industrial power packages, 4-in-1 units, heavy-duty commercial welders, plasma cutters, and high-capacity water pumps configured specifically for demanding commercial job sites and emergency disaster relief.</p>
+                        <ul style="list-style: none; margin-top: 1.5rem;">
+                            <li style="padding: 0.4rem 0; color: var(--text-muted-dark); display: flex; align-items: center;"><span style="color: #eab308; margin-right: 10px;">◆</span> Skid-mounted tri-fuel and diesel power generators</li>
+                            <li style="padding: 0.4rem 0; color: var(--text-muted-dark); display: flex; align-items: center;"><span style="color: #eab308; margin-right: 10px;">◆</span> All-in-one welding, air, and generator utility units</li>
+                            <li style="padding: 0.4rem 0; color: var(--text-muted-dark); display: flex; align-items: center;"><span style="color: #eab308; margin-right: 10px;">◆</span> High-volume dewatering trash pumps for heavy civil sites</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- PART 4 OF 5: BBB COMPLIANCE & CORPORATE GOVERNANCE -->
+    <section class="section-light">
+        <div class="section-container">
+            <h2 class="section-title">Better Business Bureau <span>(BBB) Certified & Accredited</span></h2>
+            <p class="section-subtitle">Trust, transparency, and verified corporate standing form the immutable bedrock of every capital transaction, equipment brokerage agreement, and asset recovery project we execute.</p>
+            
+            <div class="grid-3" style="margin-top: 3rem;">
+                <div class="card-light" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #0f172a;">Verified <span>BBB Accreditation</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">Hulsey Capital Solutions maintains active Better Business Bureau certification, adhering strictly to ethical business practices, transparent consumer relations, and rigorous professional accountability across all commercial divisions.</p>
+                </div>
+
+                <div class="card-light" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #0f172a;">Rigorous <span>Ethical Standards</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">Our corporate framework upholds uncompromising standards of commercial transparency, ensuring that every equipment broker contract, asset recovery operation, and client interaction meets strict institutional quality controls.</p>
+                </div>
+
+                <div class="card-light" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #0f172a;">Enterprise <span>Accountability</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">We believe in absolute operational integrity. Our BBB certification reflects our ongoing dedication to resolving client inquiries swiftly, maintaining pristine financial records, and honoring every commercial commitment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- PART 5 OF 10: CORPORATE BACKGROUND & FIELD LEADERSHIP -->
+    <section class="section-dark">
+        <div class="section-container">
+            <h2 class="section-title">Corporate Background & <span>Field Leadership Legacy</span></h2>
+            <p class="section-subtitle">Built from the ground up on decades of hands-on mechanical mastery, heavy industrial sanitation, diesel technology, and industrial equipment demonstrations.</p>
+            
+            <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem;">
+                <div>
+                    <p style="color: var(--text-muted-dark); font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">Hulsey Capital Solutions was established to solve a persistent, costly challenge in the heavy industrial sector: contractors, fleet operators, and commercial enterprise leaders require capital and brokerage partners who understand machinery and heavy operations from the ground up.</p>
+                    <p style="color: var(--text-muted-dark); font-size: 1.15rem; line-height: 1.9; margin-bottom: 1.5rem;">Backed by extensive, frontline field experience spanning heavy power generation systems, diesel engine overhauls, mechanical maintenance, industrial sanitation, rigging, surface coating, and live equipment demonstrations, our leadership bridges the gap between rugged job-site realities and high-level financial execution.</p>
+                    <p style="color: var(--text-muted-dark); font-size: 1.15rem; line-height: 1.9;">Whether you are procuring commercial equipment packages, scaling regional transport fleets, or managing complex asset recovery, our mission is anchored in bulletproof reliability, ethical governance, and uncompromising performance.</p>
+                </div>
+                <div style="height: 480px; border-radius: 16px; background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80') no-repeat center center/cover; border: 3px solid #eab308; box-shadow: 0 0 40px rgba(234, 179, 8, 0.35);"></div>
+            </div>
+        </div>
+    </section>
+<!-- PART 6 OF 10: INDUSTRY SECTORS SERVED & COMMERCIAL CASE STUDIES -->
+    <section class="section-light">
+        <div class="section-container">
+            <h2 class="section-title">Industry Sectors Served & <span>Operational Impact</span></h2>
+            <p class="section-subtitle">We deploy institutional capital and brokerage expertise across the most demanding commercial sectors in North America, ensuring heavy operators have the machinery and liquidity required to execute.</p>
+            
+            <div class="grid-3" style="margin-top: 3rem;">
+                <div class="card-light" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #0f172a;">Heavy Civil <span>& Infrastructure</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">Supporting highway contractors, earthmoving syndicates, and municipal developers with rapid equipment financing for multi-million dollar excavator fleets, bulldozers, and aggregate crushing plants.</p>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Rapid project mobilization funding</li>
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Low down payment tranche structures</li>
+                    </ul>
+                </div>
+
+                <div class="card-light" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #0f172a;">Freight Logistics <span>& Regional Fleets</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">Empowering regional trucking carriers and independent owner-operators to scale their fleet capacity, acquire Class 8 semi-trucks, and secure working capital for fuel and operational overhead.</p>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Over-the-road sleeper financing</li>
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Working capital bundling options</li>
+                    </ul>
+                </div>
+
+                <div class="card-light" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #0f172a;">Industrial Power <span>& Remote Plant Operations</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">Procuring and financing deployment-ready mobile power generators, tri-fuel power skids, 4-in-1 utility units, and high-capacity dewatering pumps for remote industrial sites.</p>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Heavy-duty generator procurement</li>
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Emergency disaster relief power units</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- PART 7 OF 10: INTERACTIVE EQUIPMENT FINANCING & CAPITAL FAQ MATRIX -->
+    <section class="section-dark">
+        <div class="section-container">
+            <h2 class="section-title">Commercial Financing <span>Frequently Asked Questions</span></h2>
+            <p class="section-subtitle">Detailed answers regarding institutional underwriting, equipment eligibility, soft credit inquiries, and capital disbursement timelines.</p>
+
+            <div class="dropdown-menu-container">
+                <details>
+                    <summary>How do soft credit pulls protect my business profile?</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Operational Advantage:</strong> When evaluating heavy equipment loans or working capital lines up to $10,000,000, traditional hard credit inquiries can temporarily depress your corporate and personal credit scores. Hulsey Capital Solutions utilizes initial soft credit pulls for pre-qualification and structuring. This allows our institutional lenders to review your financial profile without generating hard bureau inquiries, protecting your borrowing power until you formally approve final loan documents.</p>
+                        <ul>
+                            <li><strong>Zero Bureau Impact:</strong> Initial pre-qualification generates no hard credit footprints.</li>
+                            <li><strong>Fast Assessment:</strong> Instantaneous evaluation of cash flow and credit tier eligibility.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>What are the maximum age restrictions for used heavy machinery?</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Operational Advantage:</strong> Unlike standard commercial banks that refuse financing on machinery older than 5 years, our specialized institutional partners recognize the residual value and durability of well-maintained industrial iron. We finance used heavy excavators, bulldozers, wheel loaders, and Class 8 semi-trucks with flexible age parameters, provided the asset passes a certified multi-point mechanical inspection.</p>
+                        <ul>
+                            <li><strong>Extended Asset Age:</strong> Financing available for machinery up to 10 to 12 years old on select commercial tiers.</li>
+                            <li><strong>Inspection Backing:</strong> Certified mechanical inspection reports ensure reliable job-site performance from day one.</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Can I bundle working capital and maintenance reserves into my equipment loan?</summary>
+                    <div class="dropdown-content">
+                        <p><strong>The Operational Advantage:</strong> Absolutely. Acquiring heavy machinery or expanding a transport fleet requires immediate auxiliary capital for initial maintenance, commercial insurance down payments, fuel overhead, and operator payroll. Our structured loan packages allow you to bundle working capital directly into your primary equipment financing tranche, preserving your existing cash reserves.</p>
+                        <ul>
+                            <li><strong>Single Streamlined Payment:</strong> Combine asset acquisition and working capital into one predictable monthly installment.</li>
+                            <li><strong>Immediate Liquidity:</strong> Secure cash reserves for unexpected job-site mobilization and parts inventory.</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+<!-- PART 8 OF 10: DIRECT EQUIPMENT SOURCING & VERIFICATION STANDARDS -->
+    <section class="section-light">
+        <div class="section-container">
+            <h2 class="section-title">Institutional Equipment Sourcing & <span>Verification Standards</span></h2>
+            <p class="section-subtitle">We maintain uncompromised standards when vetting, inspecting, and brokering heavy industrial machinery and commercial transport assets.</p>
+
+            <div class="grid-3" style="margin-top: 3rem;">
+                <div class="card-light" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #0f172a;">Multi-Point <span>Mechanical Audits</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">Every piece of heavy earthmoving machinery, crawler crane, and transport semi-truck brokered through our network undergoes rigorous hydraulic, engine, and structural inspection protocols before final closing.</p>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Complete powertrain & hydraulic pressure tests</li>
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Undercarriage wear and structural integrity audits</li>
+                    </ul>
+                </div>
+
+                <div class="card-light" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #0f172a;">Turnkey Title & <span>Lien Clearance</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">We eliminate administrative friction by handling all title transfers, UCC lien searches, state registrations, and institutional payoffs directly, ensuring clean, marketable ownership titles upon delivery.</p>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Comprehensive UCC lien search verification</li>
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Direct institutional title escrow management</li>
+                    </ul>
+                </div>
+
+                <div class="card-light" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #0f172a;">Global Network <span>& Auction Brokerage</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">Leveraging direct access to tier-one commercial equipment auctions, manufacturer closeouts, and private corporate fleet liquidations to source hard-to-find heavy iron at competitive wholesale rates.</p>
+                    <ul style="list-style: none;">
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Exclusive corporate fleet liquidation access</li>
+                        <li style="padding: 0.3rem 0; color: var(--text-muted); display: flex; align-items: center;"><span style="color: #ca8a04; margin-right: 10px;">◆</span> Global heavy transport logistics coordination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- PART 9 OF 10: REGULATORY COMPLIANCE, FMCSA STANDARDS & GOVERNANCE -->
+    <section class="section-dark">
+        <div class="section-container">
+            <h2 class="section-title">Regulatory Compliance & <span>Commercial Governance</span></h2>
+            <p class="section-subtitle">We operate under stringent federal transport frameworks, FMCSA compliance standards, and ethical business guidelines to ensure absolute security for every client.</p>
+
+            <div class="grid-3" style="margin-top: 3rem;">
+                <div class="card-dark" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">FMCSA & DOT <span>Transport Standards</span></h3>
+                    <p style="color: var(--text-muted-dark); font-size: 1.05rem; line-height: 1.8;">Our fleet financing and heavy asset transport brokerage operations strictly adhere to Federal Motor Carrier Safety Administration (FMCSA) and Department of Transportation (DOT) guidelines, ensuring all brokered transport rigs maintain proper licensing, safety ratings, and insurance verification.</p>
+                </div>
+
+                <div class="card-dark" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Transparent <span>Contractual Integrity</span></h3>
+                    <p style="color: var(--text-muted-dark); font-size: 1.05rem; line-height: 1.8;">Every equipment lease, loan structure, and brokerage agreement is built with absolute transparency. We eliminate hidden origination fees, unclear amortization schedules, and predatory clauses, providing commercial borrowers with crystal-clear financial terms.</p>
+                </div>
+
+                <div class="card-dark" style="padding: 3rem;">
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Consumer Protection <span>& Rapid Resolution</span></h3>
+                    <p style="color: var(--text-muted-dark); font-size: 1.05rem; line-height: 1.8;">Backed by our Better Business Bureau (BBB) certification, we maintain a dedicated client resolution framework to address inquiries, manage escrow accounts, and resolve operational discrepancies swiftly and professionally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- PART 10 OF 10: EXECUTIVE CONTACT & SECURE INQUIRY PORTAL -->
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <h2>Connect With <span>Hulsey Capital Solutions</span></h2>
+            <p>Ready to secure institutional equipment financing, expand your commercial transport fleet, or discuss heavy asset recovery? Reach out to our executive leadership team directly.</p>
+            
+            <div class="contact-boxes">
+                <div class="contact-box">
+                    <span>Business Email</span>
+                    Hulseycapitalsolutions@gmail.com
+                </div>
+                <div class="contact-box">
+                    <span>Direct Phone</span>
+                    720-933-6319
+                </div>
+                <div class="contact-box">
+                    <span>Accreditation</span>
+                    BBB Certified Enterprise
+                </div>
+            </div>
+
+            <a href="mailto:Hulseycapitalsolutions@gmail.com" class="btn-gold">Initiate Secure Capital Inquiry</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="section-container">
+            <p>&copy; 2026 Hulsey Capital Solutions. All Rights Reserved. Verified Better Business Bureau (BBB) Certified & Accredited Enterprise. Commercial Equipment Brokerage, Fleet Financing, and Heavy Asset Recovery Specialists.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+    
