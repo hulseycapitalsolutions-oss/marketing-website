@@ -7,6 +7,7 @@
     <style>
         :root {
             --bg-dark: #040711;
+            --bg-secondary: #080e22;
             --card-dark: #0d1533;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
@@ -29,7 +30,8 @@
         .hero h1 { font-size: 4.2rem; margin-bottom: 1.5rem; }
         .hero h1 span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 3rem; }
-        .btn-gold { display: inline-block; background: var(--gold-gradient); color: #040711; padding: 1.1rem 2.8rem; font-weight: 900; text-decoration: none; border-radius: 8px; text-transform: uppercase; border: none; cursor: pointer; }
+        .btn-gold { display: inline-block; background: var(--gold-gradient); color: #040711; padding: 1.1rem 2.8rem; font-weight: 900; text-decoration: none; border-radius: 8px; text-transform: uppercase; border: none; cursor: pointer; transition: transform 0.2s ease; }
+        .btn-gold:hover { transform: translateY(-3px); }
         
         .section { padding: 7rem 2rem; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 3rem; margin-bottom: 1rem; }
@@ -37,9 +39,16 @@
         .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1.15rem; margin-bottom: 4rem; }
         
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem; }
+        
         .card { background: var(--card-dark); border: 2px solid var(--gold-border); border-radius: 16px; padding: 3rem; }
         .card h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
         .card h3 span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .image-card { background: var(--card-dark); border-radius: 16px; overflow: hidden; border: 2px solid var(--gold-border); }
+        .card-img { height: 220px; background-size: cover; background-position: center; border-bottom: 2px solid var(--gold-border); }
+        .card-body { padding: 2.5rem; }
+
         .form-group { margin-bottom: 1.2rem; }
         .form-group label { display: block; color: var(--text-muted); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.4rem; }
         .form-group input, .form-group select { width: 100%; padding: 0.9rem; background: #040711; border: 2px solid rgba(234, 179, 8, 0.3); border-radius: 6px; color: #fff; font-size: 1rem; }
@@ -57,6 +66,7 @@
         <div class="logo">Hulsey <span>Capital</span></div>
         <div class="nav-links">
             <a href="#calculator">Calculator</a>
+            <a href="#equipment">Equipment & Divisions</a>
             <a href="#documents">W-9 & BBB</a>
             <a href="#contact">Contact</a>
         </div>
@@ -72,6 +82,7 @@
         </div>
     </section>
 
+    <!-- CALCULATOR & LEAD FORM SECTION -->
     <section id="calculator" class="section">
         <h2 class="section-title">Equipment Loan Calculator & <span>Instant Connection</span></h2>
         <p class="section-subtitle">Calculate payments and submit your inquiry directly to our funding pipeline.</p>
@@ -125,7 +136,40 @@
         </div>
     </section>
 
-    <section id="documents" class="section" style="background: rgba(8, 14, 34, 0.5);">
+    <!-- EQUIPMENT & DIVISIONS SECTION WITH IMAGES -->
+    <section id="equipment" class="section" style="background: rgba(8, 14, 34, 0.5);">
+        <h2 class="section-title">Equipment We Finance & <span>Core Divisions</span></h2>
+        <p class="section-subtitle">Specialized capital solutions and asset brokerage for heavy contractors and transport fleets.</p>
+        
+        <div class="grid-3">
+            <div class="image-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-body">
+                    <h3>Heavy <span>Earthmoving Iron</span></h3>
+                    <p style="color: var(--text-muted);">Financing for hydraulic excavators, track-type bulldozers, wheel loaders, motor graders, and crawler cranes ranging from $50k to $10M.</p>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-body">
+                    <h3>Fleet & <span>Logistics Transport</span></h3>
+                    <p style="color: var(--text-muted);">Asset loans and working capital bundling for Class 8 semi-trucks, sleeper cabs, dry vans, reefers, and heavy-haul lowboy rigs.</p>
+                </div>
+            </div>
+
+            <div class="image-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="card-body">
+                    <h3>Mobile Power <span>& Field Units</span></h3>
+                    <p style="color: var(--text-muted);">Deployment-ready industrial tri-fuel generators, 4-in-1 power units, heavy-duty welders, and high-capacity dewatering trash pumps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFICIAL BUSINESS DOCUMENTS & BBB -->
+    <section id="documents" class="section">
         <h2 class="section-title">Official Business Documents & <span>BBB Accreditation</span></h2>
         <p class="section-subtitle">Verified tax compliance and corporate standing.</p>
         
@@ -143,8 +187,9 @@
         </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="contact-box">
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section" style="background: rgba(8, 14, 34, 0.5);">
+        <div class="contact-box" style="max-width: 900px; margin: 0 auto;">
             <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Connect With <span>Hulsey Capital Solutions</span></h2>
             <p style="color: var(--text-muted); margin-bottom: 2rem;">Phone: 720-933-6319 | Email: Hulseycapitalsolutions@gmail.com</p>
             <a href="mailto:Hulseycapitalsolutions@gmail.com" class="btn-gold">Email Executive Team</a>
